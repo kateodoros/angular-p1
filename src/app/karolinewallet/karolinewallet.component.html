@@ -1,0 +1,41 @@
+<div class="container">
+<div class="row">
+  <div class="col">
+    <h1 class="h2 text-center my-2">Carteira Virtual</h1>
+
+    <div class="alert alert-primary">
+      Saldo Atual:
+      <p>{{ this.wallet.getSaldo() }} BTC</p>
+      <ul>
+        <li>$ {{ this.wallet.getDolar() }} Dólares</li>
+        <li>R$ {{ this.wallet.getReal() }} Reais</li>
+        <li>€ {{ this.wallet.getEuro() }} Euros</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        <div class="my-2">
+          <label class="form-label">Digite um valor</label>
+          <input class="form-control" type="number" #valor min="0" />
+        </div>
+
+        <div class="d-grid col-8 mx-auto">
+          <button
+            class="btn btn-success my-2"
+            (click)="depositar(valor.value); valor.value = ''"
+          >
+            Depositar
+          </button>
+          <button
+            class="btn btn-danger"
+            (click)="sacar(valor.value); valor.value = ''"
+          >
+            Sacar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
